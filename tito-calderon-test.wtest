@@ -1,0 +1,28 @@
+import tito-calderon.*
+
+describe "test de tito" {
+
+    //Metodo exclusivo para los test, mejor dicho para los describe que inicializa los objetos
+    method initialize(){
+        tito.consumir(5, whisky)
+    }
+
+    //Este metodo se pasara de largo, por eso los demas funcionaran, solo contemplan el inicialize
+    method consumirTerere() {
+        tito.consumir(5, terere)
+    }
+
+    test "tito pesa 70" {
+    assert.equals(70, tito.peso())
+    }
+
+    test "La velocidad de tito es 4.1343" {
+        assert.equals(0.9 ** 5 * 490 / 70, tito.velocidad())
+    }
+
+    //Ejecuto un metodo del describe, por eso le pregunto a el con self y luego uso el mensaje
+    test "ahora la vel es 7 porque toma 5 de terere" {
+        self.consumirTerere()
+        assert.equals(7, tito.velocidad())
+    }
+}
